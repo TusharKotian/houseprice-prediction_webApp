@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up | House Price Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='auth.css', v='1') }}" rel="stylesheet">
+    <link href="/static/auth.css?v=1" rel="stylesheet">
+  </head>
+  <body>
+    <div class="auth-bg" aria-hidden="true"></div>
+    <header class="top-nav">
+      <div class="container nav-inner">
+        <a href="/" class="brand">
+          <span class="brand-logo" aria-hidden="true">
+            <span class="roof"></span>
+            <span class="home"></span>
+            <span class="bar b1"></span>
+            <span class="bar b2"></span>
+            <span class="bar b3"></span>
+          </span>
+          <span>HouseValue AI</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/">About</a>
+          <a href="/predict">Predict</a>
+          <a href="/login">Login</a>
+          <a href="/signup" class="active">Sign Up</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="auth-shell">
+      <div class="container">
+        <div class="row justify-content-center align-items-center g-4">
+          <div class="col-12 col-lg-5 order-lg-2">
+            <section class="auth-copy">
+              <span class="auth-badge">Create Account</span>
+              <h1>Start using AI-powered house price predictions in minutes.</h1>
+              <p>Build your account to access the prediction interface, save time on repeat analysis, and keep your valuation workflow in one place.</p>
+              <div class="copy-points">
+                <div class="copy-item">Simple onboarding form</div>
+                <div class="copy-item">Responsive layout for desktop and mobile</div>
+                <div class="copy-item">Consistent look with the existing site</div>
+              </div>
+            </section>
+          </div>
+
+          <div class="col-12 col-lg-5 order-lg-1">
+            <section class="auth-card">
+              <div class="card-top">
+                <h2>Sign Up</h2>
+                <p>Create your account to begin.</p>
+              </div>
+
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <div class="flash-wrap">
+                    {% for message in messages %}
+                      <div class="alert alert-info flash-alert" role="alert">{{ message }}</div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              {% endwith %}
+
+              <form class="auth-form" action="/signup" method="post">
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="first-name" class="form-label">First Name</label>
+                    <input type="text" class="form-control auth-control" id="first-name" name="first_name" placeholder="Tushar" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="last-name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control auth-control" id="last-name" name="last_name" placeholder="Kotian" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="signup-email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control auth-control" id="signup-email" name="u_email" placeholder="you@example.com" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="signup-password" class="form-label">Password</label>
+                    <input type="password" class="form-control auth-control" id="signup-password" name="u_password" placeholder="Create a password" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control auth-control" id="confirm-password" name="confirm_password" placeholder="Confirm your password" required>
+                  </div>
+                </div>
+
+                <label class="terms-check">
+                  <input type="checkbox" required>
+                  <span>I agree to the platform terms and privacy policy.</span>
+                </label>
+
+                <button type="submit" class="btn auth-btn w-100">Create Account</button>
+              </form>
+
+              <p class="auth-switch">Already have an account? <a href="/login">Login here</a></p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
