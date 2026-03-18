@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About | House Price Prediction</title>
+    <title>Project | House Price Prediction</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="{{ url_for('static', filename='style.css', v='5') }}" rel="stylesheet">
-    <link href="/static/style.css?v=5" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css', v='7') }}" rel="stylesheet">
   </head>
   <body>
     <div class="page-bg" aria-hidden="true"></div>
+    <div class="mesh mesh-one" aria-hidden="true"></div>
+    <div class="mesh mesh-two" aria-hidden="true"></div>
+
     <header class="top-nav">
       <div class="container nav-inner">
         <a href="/" class="brand">
@@ -26,116 +28,211 @@
           <span>HouseValue AI</span>
         </a>
         <nav class="nav-links">
-          <a href="/" class="active">About</a>
+          <a href="/">Home</a>
+          <a href="/index" class="active">Project</a>
+          <a href="/about">About</a>
+          {% if session.get("user_id") %}
           <a href="/predict">Predict</a>
+          <a href="/logout">Logout</a>
+          {% else %}
           <a href="/login">Login</a>
           <a href="/signup">Sign Up</a>
+          {% endif %}
         </nav>
       </div>
     </header>
 
-    <main class="about-shell py-4 py-lg-5">
+    <main class="landing-shell">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-xl-10">
-            <section class="about-card">
-              <div class="row g-4 align-items-center">
-                <div class="col-12 col-lg-7">
-                  <span class="badge project-badge">Machine Learning Project</span>
-                  <h1 class="about-title">House Price Prediction</h1>
-                  <p class="about-subtitle">This web app uses a trained regression model to estimate house prices from property features such as area, condition, view quality, and construction details.</p>
-
-                  <div class="stat-row">
-                    <div class="stat-pill"><strong>12</strong> input features</div>
-                    <div class="stat-pill"><strong>ML</strong> regression model</div>
-                    <div class="stat-pill"><strong>Live</strong> web inference</div>
-                  </div>
-
-                  <div class="feature-grid">
-                    <article class="feature-item">
-                      <h2>What It Does</h2>
-                      <p>Predicts likely market value based on 12 structured input fields collected from the user.</p>
-                    </article>
-                    <article class="feature-item">
-                      <h2>Tech Stack</h2>
-                      <p>Built with Flask for backend logic and Bootstrap + custom CSS for a clean responsive UI.</p>
-                    </article>
-                    <article class="feature-item">
-                      <h2>Model Inputs</h2>
-                      <p>Living area, lot size, bedrooms, bathrooms, floors, waterfront, condition, and build/renovation year.</p>
-                    </article>
-                    <article class="feature-item">
-                      <h2>How To Use</h2>
-                      <p>Go to the prediction page, fill in property information, and submit to generate price output.</p>
-                    </article>
-                  </div>
-
-                  <section class="market-panel">
-                    <div class="panel-head">
-                      <h2>Sample Market Trend</h2>
-                      <span>Avg. YoY Change</span>
-                    </div>
-                    <div class="trend-item">
-                      <label>Bengaluru</label>
-                      <div class="trend-line"><span style="--w: 78%"></span></div>
-                      <strong>+7.8%</strong>
-                    </div>
-                    <div class="trend-item">
-                      <label>Mumbai</label>
-                      <div class="trend-line"><span style="--w: 63%"></span></div>
-                      <strong>+6.3%</strong>
-                    </div>
-                    <div class="trend-item">
-                      <label>Pune</label>
-                      <div class="trend-line"><span style="--w: 55%"></span></div>
-                      <strong>+5.5%</strong>
-                    </div>
-                    <div class="trend-item">
-                      <label>Hyderabad</label>
-                      <div class="trend-line"><span style="--w: 72%"></span></div>
-                      <strong>+7.2%</strong>
-                    </div>
-                  </section>
-
-                  <section class="resource-panel">
-                    <h2>Explore Real Estate Platforms</h2>
-                    <div class="resource-links">
-                      <a href="https://www.99acres.com/" target="_blank" rel="noopener noreferrer">99acres</a>
-                      <a href="https://www.magicbricks.com/" target="_blank" rel="noopener noreferrer">MagicBricks</a>
-                      <a href="https://housing.com/" target="_blank" rel="noopener noreferrer">Housing.com</a>
-                      <a href="https://www.nobroker.in/" target="_blank" rel="noopener noreferrer">NoBroker</a>
-                    </div>
-                  </section>
-
-                  <div class="cta-row">
-                    <a href="/predict" class="btn btn-predict">Visit Prediction Page</a>
-                    <p class="cta-note">Tip: Start with approximate values first, then refine for better comparison.</p>
-                  </div>
-                </div>
-
-                <div class="col-12 col-lg-5">
-                  <div class="about-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Modern house used for AI house price prediction">
-                    <div class="image-metrics">
-                      <div class="metric-chip">
-                        <span>Model Score</span>
-                        <strong>0.92 R²</strong>
-                      </div>
-                      <div class="metric-chip">
-                        <span>Prediction Time</span>
-                        <strong>&lt; 1 sec</strong>
-                      </div>
-                    </div>
-                    <div class="image-tag">
-                      <p>Live Prediction Interface</p>
-                      <small>Interactive form + instant output panel</small>
-                    </div>
-                  </div>
-                </div>
+        <section class="hero-panel">
+          <div class="hero-copy">
+            <span class="eyebrow">End-to-End Machine Learning Project</span>
+            <h1>House price prediction designed like a real product, not just a model demo.</h1>
+            <p class="hero-text">
+              HouseValue AI is a full-stack machine learning application that transforms structured housing data into an
+              instant value estimate through a professional web experience. The project highlights model training,
+              Flask-based deployment, secure login flow, and modern interface design in one complete solution.
+            </p>
+            <div class="hero-actions">
+              <a href="/predict" class="btn btn-primary-hero">Launch Prediction</a>
+              {% if session.get("user_id") %}
+              <a href="/" class="btn btn-secondary-hero">Go To Home</a>
+              {% else %}
+              <a href="/login" class="btn btn-secondary-hero">Access Dashboard</a>
+              {% endif %}
+            </div>
+            <div class="hero-stats">
+              <div class="stat-card">
+                <strong>12</strong>
+                <span>core features used in valuation</span>
               </div>
-            </section>
+              <div class="stat-card">
+                <strong>Flask</strong>
+                <span>production-style backend flow</span>
+              </div>
+              <div class="stat-card">
+                <strong>Supabase</strong>
+                <span>account access and session flow</span>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div class="hero-visual-card">
+            <div class="visual-top">
+              <span>Project Snapshot</span>
+              <strong>HouseValue AI</strong>
+            </div>
+            <div class="visual-image">
+              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=80" alt="Modern luxury residential property exterior">
+              <div class="image-overlay">
+                <p>AI-assisted real estate intelligence</p>
+                <small>Built to present machine learning, web engineering, and polished UI in one workflow.</small>
+              </div>
+            </div>
+            <div class="visual-metrics">
+              <div>
+                <span>Workflow</span>
+                <strong>Train -> Save -> Serve</strong>
+              </div>
+              <div>
+                <span>Experience</span>
+                <strong>Elegant, responsive, portfolio-ready</strong>
+              </div>
+            </div>
+            <div class="visual-feature-strip">
+              <div class="feature-strip-head">
+                <span>Project Highlights</span>
+                <strong>Built for technical presentation</strong>
+              </div>
+              <div class="feature-strip-grid">
+                <article>
+                  <b>Model-first thinking</b>
+                  <p>Structured housing features are transformed into fast, usable predictions.</p>
+                </article>
+                <article>
+                  <b>Interface quality</b>
+                  <p>Designed to look credible in demos, reviews, and portfolio walkthroughs.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <article class="content-card">
+            <span class="section-tag">Project Overview</span>
+            <h2>What the platform delivers</h2>
+            <p>
+              The application predicts property prices from meaningful housing attributes including bedrooms, bathrooms,
+              square footage, floors, waterfront availability, view score, condition, and year details. Instead of
+              stopping at the machine learning model, the project extends into a complete product experience that a
+              recruiter, mentor, or client can explore directly.
+            </p>
+          </article>
+
+          <article class="content-card">
+            <span class="section-tag">Technology Stack</span>
+            <h2>Tools used to build the solution</h2>
+            <div class="pill-grid">
+              <span>Python</span>
+              <span>Flask</span>
+              <span>NumPy</span>
+              <span>Pickle</span>
+              <span>Bootstrap</span>
+              <span>Custom CSS</span>
+              <span>Supabase</span>
+              <span>HTML Templates</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="journey-section">
+          <div class="section-heading">
+            <span class="section-tag">Build Journey</span>
+            <h2>How I built the project step by step</h2>
+            <p>
+              The development approach followed a practical ML product pipeline, moving from data preparation to model
+              deployment and a polished front-end presentation.
+            </p>
+          </div>
+
+          <div class="timeline-grid">
+            <article class="timeline-card">
+              <div class="step-no">01</div>
+              <h3>Problem Framing</h3>
+              <p>I defined the goal clearly: predict house prices from structured property features in a reliable and understandable way.</p>
+            </article>
+            <article class="timeline-card">
+              <div class="step-no">02</div>
+              <h3>Data Preparation</h3>
+              <p>I explored the dataset, handled feature selection, and identified the strongest variables for meaningful price estimation.</p>
+            </article>
+            <article class="timeline-card">
+              <div class="step-no">03</div>
+              <h3>Model Training</h3>
+              <p>I trained a regression model to learn the relationship between property characteristics and final market value.</p>
+            </article>
+            <article class="timeline-card">
+              <div class="step-no">04</div>
+              <h3>Model Export</h3>
+              <p>The trained model was serialized with Pickle so it could be loaded quickly inside the Flask application.</p>
+            </article>
+            <article class="timeline-card">
+              <div class="step-no">05</div>
+              <h3>Web Designing</h3>
+              <p>I designed a responsive interface with stronger visual hierarchy, premium layouts, and content sections that explain the project professionally.</p>
+            </article>
+            <article class="timeline-card">
+              <div class="step-no">06</div>
+              <h3>Authentication and Delivery</h3>
+              <p>I connected Supabase-based login and signup flows so the project feels like a complete web product instead of a single form page.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="showcase-grid">
+          <article class="showcase-card">
+            <span class="section-tag">Prediction Experience</span>
+            <h2>What users can do</h2>
+            <ul class="feature-list">
+              <li>Enter property details through a guided prediction interface.</li>
+              <li>Receive an estimated price instantly from the trained model.</li>
+              <li>Review the project as a full demonstration of ML deployment.</li>
+            </ul>
+          </article>
+
+          <article class="showcase-card accent-card">
+            <span class="section-tag">Professional Value</span>
+            <h2>Why the project stands out</h2>
+            <ul class="feature-list">
+              <li>Shows the complete journey from training data to final deployment.</li>
+              <li>Combines technical implementation with design presentation.</li>
+              <li>Feels suitable for internships, portfolios, and demonstrations.</li>
+            </ul>
+          </article>
+
+          <article class="showcase-card">
+            <span class="section-tag">Model Inputs</span>
+            <h2>Features used for price prediction</h2>
+            <p class="compact-copy">
+              Bedrooms, bathrooms, living area, lot size, floors, waterfront, view, condition, above-ground area,
+              basement area, year built, and year renovated are all processed by the model before generating the result.
+            </p>
+          </article>
+        </section>
+
+        <section class="final-banner">
+          <div>
+            <span class="section-tag">Live Application</span>
+            <h2>See the prediction engine in action</h2>
+            <p>Move to the prediction page to test real house inputs and experience the complete model-to-interface workflow.</p>
+          </div>
+          {% if session.get("user_id") %}
+          <a href="/predict" class="btn btn-primary-hero">Open Prediction Page</a>
+          {% else %}
+          <a href="/login" class="btn btn-primary-hero">Login To Continue</a>
+          {% endif %}
+        </section>
       </div>
     </main>
 

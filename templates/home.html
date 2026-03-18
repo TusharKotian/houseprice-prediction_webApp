@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | House Price Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css', v='9') }}" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="mesh mesh-one" aria-hidden="true"></div>
+    <div class="mesh mesh-two" aria-hidden="true"></div>
+
+    <header class="top-nav">
+      <div class="container nav-inner">
+        <a href="/" class="brand">
+          <span class="brand-logo" aria-hidden="true">
+            <span class="roof"></span>
+            <span class="home"></span>
+            <span class="bar b1"></span>
+            <span class="bar b2"></span>
+            <span class="bar b3"></span>
+          </span>
+          <span>HouseValue AI</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/" class="active">Home</a>
+          <a href="/about">About</a>
+          <a href="/index">Project</a>
+          <a href="/predict">Predict</a>
+          <a href="/logout">Logout</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="home-shell">
+      <div class="container">
+        <section class="market-hero">
+          <div class="market-copy">
+            <span class="eyebrow">Residential Market Intelligence</span>
+            <h1>Understand homes, prices, and valuation trends before you predict.</h1>
+            <p>
+              The homepage focuses on the housing side of the story: what affects property value, how market signals
+              behave, and why structured features such as area, condition, and location-related attributes matter in a
+              prediction system.
+            </p>
+            <div class="hero-actions">
+              <a href="/about" class="btn btn-primary-hero">Explore Project</a>
+              <a href="/predict" class="btn btn-secondary-hero">Go To Predict</a>
+            </div>
+          </div>
+
+          <div class="market-panel">
+            <div class="market-panel-head">
+              <span>Sample Price Trend</span>
+              <strong>Indicative urban housing movement</strong>
+            </div>
+            <div class="market-chart">
+              <div class="chart-column">
+                <label>Jan</label>
+                <span style="height: 44%"></span>
+              </div>
+              <div class="chart-column">
+                <label>Feb</label>
+                <span style="height: 51%"></span>
+              </div>
+              <div class="chart-column">
+                <label>Mar</label>
+                <span style="height: 56%"></span>
+              </div>
+              <div class="chart-column">
+                <label>Apr</label>
+                <span style="height: 62%"></span>
+              </div>
+              <div class="chart-column">
+                <label>May</label>
+                <span style="height: 68%"></span>
+              </div>
+              <div class="chart-column">
+                <label>Jun</label>
+                <span style="height: 73%"></span>
+              </div>
+            </div>
+            <div class="market-mini-stats">
+              <div>
+                <span>Average segment growth</span>
+                <strong>+8.4%</strong>
+              </div>
+              <div>
+                <span>Buyer demand sentiment</span>
+                <strong>Stable to strong</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="housing-grid">
+          <article class="housing-card">
+            <span class="section-tag">Value Drivers</span>
+            <h2>What usually increases house prices</h2>
+            <ul class="feature-list">
+              <li>Larger living area and efficient usable space.</li>
+              <li>Better condition, higher view rating, and waterfront access.</li>
+              <li>Modern construction or recent renovation history.</li>
+              <li>Balanced lot size with strong neighborhood appeal.</li>
+            </ul>
+          </article>
+
+          <article class="housing-card">
+            <span class="section-tag">Buyer Perspective</span>
+            <h2>How people compare properties</h2>
+            <p>
+              Buyers rarely look at one feature in isolation. They compare layout quality, bedroom-to-bathroom ratio,
+              lot size, age of the property, and visible maintenance condition before deciding if a listed price feels
+              justified. That is why feature-based price modeling can be so useful.
+            </p>
+          </article>
+        </section>
+
+        <section class="insight-grid">
+          <article class="insight-card wide-card">
+            <span class="section-tag">Housing Insights</span>
+            <h2>How the model thinks about a property</h2>
+            <p>
+              The prediction system works by converting housing characteristics into numerical signals. A home with more
+              living area, stronger condition, attractive view, and updated renovation history typically trends toward a
+              higher valuation than a comparable house lacking those strengths.
+            </p>
+            <div class="valuation-chart">
+              <div class="chart-side-labels" aria-hidden="true">
+                <span>High</span>
+                <span>Medium</span>
+                <span>Base</span>
+              </div>
+              <div class="chart-panel">
+                <div class="chart-grid" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="chart-area" aria-hidden="true"></div>
+                <div class="chart-line" aria-hidden="true"></div>
+                <div class="chart-points">
+                  <div class="chart-point p1">
+                    <span class="point-dot"></span>
+                    <strong>52</strong>
+                  </div>
+                  <div class="chart-point p2">
+                    <span class="point-dot"></span>
+                    <strong>64</strong>
+                  </div>
+                  <div class="chart-point p3">
+                    <span class="point-dot"></span>
+                    <strong>74</strong>
+                  </div>
+                  <div class="chart-point p4">
+                    <span class="point-dot"></span>
+                    <strong>86</strong>
+                  </div>
+                  <div class="chart-point p5">
+                    <span class="point-dot"></span>
+                    <strong>95</strong>
+                  </div>
+                </div>
+                <div class="chart-stage-labels">
+                  <span>Compact</span>
+                  <span>Standard</span>
+                  <span>Family</span>
+                  <span>Premium</span>
+                  <span>Luxury</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="insight-card">
+            <span class="section-tag">Typical Metrics</span>
+            <h2>Common residential benchmarks</h2>
+            <div class="metric-stack">
+              <div><span>Ideal family size</span><strong>3-4 bedrooms</strong></div>
+              <div><span>Balanced layout</span><strong>2-3 bathrooms</strong></div>
+              <div><span>Preferred range</span><strong>1,500-2,500 sq ft</strong></div>
+              <div><span>Strong resale factor</span><strong>Good condition + renovation</strong></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="location-board">
+          <div class="section-heading">
+            <span class="section-tag">Market Snapshot</span>
+            <h2>Example city-wise pricing sentiment</h2>
+            <p>These visual comparisons help explain why housing markets move differently depending on local demand and property characteristics.</p>
+          </div>
+          <div class="city-grid">
+            <article class="city-card">
+              <h3>Mumbai</h3>
+              <p>High-demand premium inventory with stronger vertical housing preference and compact layouts.</p>
+              <div class="city-bar"><span style="width: 84%"></span></div>
+            </article>
+            <article class="city-card">
+              <h3>Bengaluru</h3>
+              <p>Balanced technology-driven demand with strong mid-premium family housing movement.</p>
+              <div class="city-bar"><span style="width: 72%"></span></div>
+            </article>
+            <article class="city-card">
+              <h3>Pune</h3>
+              <p>Steady residential absorption supported by affordability and expansion in emerging corridors.</p>
+              <div class="city-bar"><span style="width: 64%"></span></div>
+            </article>
+            <article class="city-card">
+              <h3>Hyderabad</h3>
+              <p>Modern inventory, expanding residential communities, and growing buyer confidence.</p>
+              <div class="city-bar"><span style="width: 69%"></span></div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

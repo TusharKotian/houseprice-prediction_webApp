@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | House Price Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css', v='8') }}" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="mesh mesh-one" aria-hidden="true"></div>
+    <div class="mesh mesh-two" aria-hidden="true"></div>
+
+    <header class="top-nav">
+      <div class="container nav-inner">
+        <a href="/" class="brand">
+          <span class="brand-logo" aria-hidden="true">
+            <span class="roof"></span>
+            <span class="home"></span>
+            <span class="bar b1"></span>
+            <span class="bar b2"></span>
+            <span class="bar b3"></span>
+          </span>
+          <span>HouseValue AI</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/">Home</a>
+          <a href="/about" class="active">About</a>
+          <a href="/index">Project</a>
+          {% if session.get("user_id") %}
+          <a href="/predict">Predict</a>
+          <a href="/logout">Logout</a>
+          {% else %}
+          <a href="/login">Login</a>
+          <a href="/signup">Sign Up</a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+
+    <main class="about-shell-page">
+      <div class="container">
+        <section class="about-hero">
+          <div class="about-hero-copy">
+            <span class="eyebrow">About The Project</span>
+            <h1>A machine learning project presented like a complete digital product.</h1>
+            <p>
+              HouseValue AI is a house price prediction web application built to demonstrate more than model accuracy.
+              It showcases the full journey from data understanding and model training to backend integration, user
+              authentication, and premium interface design.
+            </p>
+          </div>
+          <div class="about-hero-card">
+            <div class="about-hero-image">
+              <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=80" alt="Architectural home exterior and modern residential design">
+            </div>
+            <div class="about-hero-points">
+              <div><span>Focus</span><strong>Machine Learning + Full Stack Presentation</strong></div>
+              <div><span>Outcome</span><strong>Portfolio-ready house price prediction platform</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-grid">
+          <article class="about-card">
+            <span class="section-tag">Project Objective</span>
+            <h2>What the project is built to solve</h2>
+            <p>
+              The system estimates property prices from important house features such as bedrooms, bathrooms, square
+              footage, floors, view rating, waterfront presence, condition, and construction year. The aim is to make
+              house valuation understandable, fast, and accessible through a clear user interface.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <span class="section-tag">Why It Matters</span>
+            <h2>What makes this project valuable</h2>
+            <p>
+              This project demonstrates practical machine learning deployment rather than staying limited to a notebook.
+              It connects model output with a real web experience, which is useful for internships, project reviews,
+              academic demonstrations, and portfolio showcases.
+            </p>
+          </article>
+        </section>
+
+        <section class="about-grid">
+          <article class="about-card">
+            <span class="section-tag">Project Summary</span>
+            <h2>What makes this application professional</h2>
+            <p>
+              The project is designed as a complete portfolio-quality system rather than a basic machine learning demo.
+              It combines prediction logic, protected user access, polished layout design, and structured project
+              storytelling so the final product feels presentation-ready and technically credible.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <span class="section-tag">Prediction Inputs</span>
+            <h2>Features used by the model</h2>
+            <p>
+              The model evaluates bedrooms, bathrooms, living area, lot size, floors, waterfront status, view rating,
+              condition, above-ground area, basement area, build year, and renovation year to generate a house price
+              estimate from real property attributes.
+            </p>
+          </article>
+        </section>
+
+        <section class="about-flow">
+          <div class="section-heading">
+            <span class="section-tag">Development Flow</span>
+            <h2>How the project was built</h2>
+            <p>Every stage was planned to reflect a real product-building process instead of an isolated machine learning experiment.</p>
+          </div>
+          <div class="about-flow-grid">
+            <article class="flow-card">
+              <h3>1. Dataset study</h3>
+              <p>The first step was understanding the dataset, identifying useful columns, and selecting meaningful house features.</p>
+            </article>
+            <article class="flow-card">
+              <h3>2. Feature preparation</h3>
+              <p>Important numerical inputs were organized so the model could learn consistent patterns from training data.</p>
+            </article>
+            <article class="flow-card">
+              <h3>3. Model training</h3>
+              <p>A regression model was trained to predict house prices from the selected property attributes.</p>
+            </article>
+            <article class="flow-card">
+              <h3>4. Model export</h3>
+              <p>The final trained model was saved using Pickle and loaded directly inside the Flask application for prediction.</p>
+            </article>
+            <article class="flow-card">
+              <h3>5. Backend integration</h3>
+              <p>Flask routes were created to manage navigation, collect user input, and return generated predictions.</p>
+            </article>
+            <article class="flow-card">
+              <h3>6. UI and authentication</h3>
+              <p>The frontend was designed for a polished presentation and paired with login and signup flows using Supabase.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="about-grid">
+          <article class="about-card">
+            <span class="section-tag">Design Approach</span>
+            <h2>Why Home and About are different</h2>
+            <p>
+              The Home page is intentionally focused on housing insights, market-style visuals, and buyer-oriented
+              understanding. The About page is more technical and project-focused, explaining the workflow, tools,
+              architecture, and the reasoning behind the full solution.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <span class="section-tag">Best Use Cases</span>
+            <h2>Where this project fits best</h2>
+            <p>
+              This platform is well suited for internship submissions, portfolio showcases, machine learning project
+              reviews, academic demonstrations, and interviews where both technical implementation and UI quality matter.
+            </p>
+          </article>
+        </section>
+
+        <section class="about-grid">
+          <article class="about-card">
+            <span class="section-tag">Core Features</span>
+            <h2>What users can explore</h2>
+            <ul class="feature-list">
+              <li>Professional homepage and about page for project presentation.</li>
+              <li>Login and signup system for a product-style experience.</li>
+              <li>Prediction dashboard with structured form inputs.</li>
+              <li>Instant house price estimation using the trained model.</li>
+            </ul>
+          </article>
+
+          <article class="about-card">
+            <span class="section-tag">Tech Summary</span>
+            <h2>Technologies used in the build</h2>
+            <div class="pill-grid">
+              <span>Python</span>
+              <span>Flask</span>
+              <span>Machine Learning</span>
+              <span>NumPy</span>
+              <span>Pickle</span>
+              <span>Bootstrap</span>
+              <span>Custom CSS</span>
+              <span>Supabase</span>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

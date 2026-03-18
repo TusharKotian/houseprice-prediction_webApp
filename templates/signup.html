@@ -7,12 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="{{ url_for('static', filename='auth.css', v='1') }}" rel="stylesheet">
-    <link href="/static/auth.css?v=1" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='auth.css', v='2') }}" rel="stylesheet">
   </head>
   <body>
     <div class="auth-bg" aria-hidden="true"></div>
+    <div class="mesh mesh-one" aria-hidden="true"></div>
+    <div class="mesh mesh-two" aria-hidden="true"></div>
+
     <header class="top-nav">
       <div class="container nav-inner">
         <a href="/" class="brand">
@@ -26,8 +28,8 @@
           <span>HouseValue AI</span>
         </a>
         <nav class="nav-links">
-          <a href="/">About</a>
-          <a href="/predict">Predict</a>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
           <a href="/login">Login</a>
           <a href="/signup" class="active">Sign Up</a>
         </nav>
@@ -37,15 +39,27 @@
     <main class="auth-shell">
       <div class="container">
         <div class="row justify-content-center align-items-center g-4">
-          <div class="col-12 col-lg-5 order-lg-2">
+          <div class="col-12 col-lg-6 order-lg-2">
             <section class="auth-copy">
-              <span class="auth-badge">Create Account</span>
-              <h1>Start using AI-powered house price predictions in minutes.</h1>
-              <p>Build your account to access the prediction interface, save time on repeat analysis, and keep your valuation workflow in one place.</p>
+              <span class="auth-badge">Create Your Account</span>
+              <h1>Start using a portfolio-ready machine learning product experience.</h1>
+              <p>
+                Register to access the valuation dashboard, explore the trained model through a modern interface, and
+                experience the project as a complete real-world application.
+              </p>
               <div class="copy-points">
-                <div class="copy-item">Simple onboarding form</div>
-                <div class="copy-item">Responsive layout for desktop and mobile</div>
-                <div class="copy-item">Consistent look with the existing site</div>
+                <div class="copy-item">
+                  <strong>Fast onboarding</strong>
+                  <span>Create your account with a clean and structured sign-up flow.</span>
+                </div>
+                <div class="copy-item">
+                  <strong>Professional layout</strong>
+                  <span>Each page is styled to match the same premium brand system.</span>
+                </div>
+                <div class="copy-item">
+                  <strong>Real project value</strong>
+                  <span>Perfect for demonstrating deployment, UI design, and ML integration together.</span>
+                </div>
               </div>
             </section>
           </div>
@@ -53,8 +67,9 @@
           <div class="col-12 col-lg-5 order-lg-1">
             <section class="auth-card">
               <div class="card-top">
-                <h2>Sign Up</h2>
-                <p>Create your account to begin.</p>
+                <span class="mini-tag">New Account</span>
+                <h2>Create your profile</h2>
+                <p>Sign up to access the application and test the house price model.</p>
               </div>
 
               {% with messages = get_flashed_messages() %}

@@ -7,12 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="{{ url_for('static', filename='auth.css', v='1') }}" rel="stylesheet">
-    <link href="/static/auth.css?v=1" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='auth.css', v='2') }}" rel="stylesheet">
   </head>
   <body>
     <div class="auth-bg" aria-hidden="true"></div>
+    <div class="mesh mesh-one" aria-hidden="true"></div>
+    <div class="mesh mesh-two" aria-hidden="true"></div>
+
     <header class="top-nav">
       <div class="container nav-inner">
         <a href="/" class="brand">
@@ -26,8 +28,8 @@
           <span>HouseValue AI</span>
         </a>
         <nav class="nav-links">
-          <a href="/">About</a>
-          <a href="/predict">Predict</a>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
           <a href="/login" class="active">Login</a>
           <a href="/signup">Sign Up</a>
         </nav>
@@ -37,15 +39,27 @@
     <main class="auth-shell">
       <div class="container">
         <div class="row justify-content-center align-items-center g-4">
-          <div class="col-12 col-lg-5">
+          <div class="col-12 col-lg-6">
             <section class="auth-copy">
-              <span class="auth-badge">Secure Access</span>
-              <h1>Welcome back to your property intelligence dashboard.</h1>
-              <p>Sign in to review predictions, compare listings, and continue exploring price trends with a clean, focused workspace.</p>
+              <span class="auth-badge">Secure Project Access</span>
+              <h1>Welcome back to a more refined property intelligence workspace.</h1>
+              <p>
+                Sign in to access the prediction dashboard, explore valuation inputs, and demonstrate the project through
+                a polished, product-style user flow.
+              </p>
               <div class="copy-points">
-                <div class="copy-item">Track property evaluations faster</div>
-                <div class="copy-item">Access the prediction form anytime</div>
-                <div class="copy-item">Keep your workflow organized</div>
+                <div class="copy-item">
+                  <strong>Prediction dashboard</strong>
+                  <span>Use structured house inputs to generate a model-based price estimate.</span>
+                </div>
+                <div class="copy-item">
+                  <strong>Professional presentation</strong>
+                  <span>Showcase the project as a complete machine learning web application.</span>
+                </div>
+                <div class="copy-item">
+                  <strong>Consistent experience</strong>
+                  <span>Navigate through a unified interface across home, login, signup, and prediction pages.</span>
+                </div>
               </div>
             </section>
           </div>
@@ -53,8 +67,9 @@
           <div class="col-12 col-lg-5">
             <section class="auth-card">
               <div class="card-top">
-                <h2>Login</h2>
-                <p>Use your account details to continue.</p>
+                <span class="mini-tag">Member Login</span>
+                <h2>Sign in to continue</h2>
+                <p>Access your prediction workspace with your registered email and password.</p>
               </div>
 
               {% with messages = get_flashed_messages() %}
@@ -83,7 +98,7 @@
                   </label>
                   <a href="/signup">Create account</a>
                 </div>
-                <button type="submit" class="btn auth-btn w-100">Login</button>
+                <button type="submit" class="btn auth-btn w-100">Login to Dashboard</button>
               </form>
 
               <p class="auth-switch">New here? <a href="/signup">Create an account</a></p>

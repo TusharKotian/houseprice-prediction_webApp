@@ -59,19 +59,26 @@ def predict_house_price(
 
 @app.route("/")
 def home():
-    return render_template("login.html")
+    if not session.get("user_id"):
+        return redirect(url_for("login"))
+    return render_template("home.html")
 
 
 @app.route("/index")
 def index():
-    if not session.get("user_id"):
-        session.clear()
-        return redirect(url_for("login"))
     return render_template("index.html")
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 
 @app.route("/login",methods=["GET", "POST"])
 def login():
+    if session.get("user_id"):
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         email = request.form.get("u_email")
         password = request.form.get("u_password")
@@ -81,7 +88,7 @@ def login():
 
         if user and user["u_password"] == hash_password(password):
             session["user_id"] = user["user_id"]
-            return redirect(url_for("index"))
+            return redirect(url_for("home"))
 
         flash("Invalid email or password")
 
@@ -90,6 +97,9 @@ def login():
 
 @app.route("/signup",methods=["GET", "POST"])
 def signup():
+    if session.get("user_id"):
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         first_name = request.form.get("first_name")
         last_name = request.form.get("last_name")
